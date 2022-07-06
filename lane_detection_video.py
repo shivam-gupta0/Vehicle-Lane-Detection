@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 
-cfg_path = "E:\\master_thesis\\project\\car_yolov3\\yolo_pretrained\\yolov3.cfg"
-weights_path = "E:\\master_thesis\\project\\car_yolov3\\yolo_pretrained\\yolov3-spp.weights"
+cfg_path = "E:\\project\\car_yolov3\\yolo_pretrained\\yolov3.cfg"
+weights_path = "E:\\project\\car_yolov3\\yolo_pretrained\\yolov3-spp.weights"
 
 
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
@@ -44,16 +44,16 @@ def detection(image, cfg_path, weights_path):
 
 
 classes = []
-with open("E:\\master_thesis\\project\\car_yolov3\\yolo_pretrained\\coco.names", 'r') as f:
+with open("E:\\project\\car_yolov3\\yolo_pretrained\\coco.names", 'r') as f:
     classes = [line.strip() for line in f.readlines()]
-cap = cv2.VideoCapture("E:\\master_thesis\\project\\vehicle_dataset\\model_test\\3.webm")
+cap = cv2.VideoCapture("E:\\project\\vehicle_dataset\\model_test\\3.webm")
 while cap.isOpened():
     rate, frame = cap.read()
     img = frame
-    l1 = cv2.imread("E:\\master_thesis\\project\\vehicle_dataset\\model_test\\mask_vid1\\44_lane1.jpg")
-    l2 = cv2.imread("E:\\master_thesis\\project\\vehicle_dataset\\model_test\\mask_vid1\\44_lane2.jpg")
-    l3 = cv2.imread("E:\\master_thesis\\project\\vehicle_dataset\\model_test\\mask_vid1\\44_lane3.jpg")
-    l4 = cv2.imread("E:\\master_thesis\\project\\vehicle_dataset\\model_test\\mask_vid1\\44_lane4.jpg")
+    l1 = cv2.imread("E:\\project\\vehicle_dataset\\model_test\\mask_vid1\\44_lane1.jpg")
+    l2 = cv2.imread("E:\\project\\vehicle_dataset\\model_test\\mask_vid1\\44_lane2.jpg")
+    l3 = cv2.imread("E:\\project\\vehicle_dataset\\model_test\\mask_vid1\\44_lane3.jpg")
+    l4 = cv2.imread("E:\\project\\vehicle_dataset\\model_test\\mask_vid1\\44_lane4.jpg")
     scale_percent = 100  # percent of original size
     width = int(img.shape[1] * scale_percent / 100)
     height = int(img.shape[0] * scale_percent / 100)
